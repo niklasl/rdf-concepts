@@ -322,17 +322,19 @@
     <p>A <a>triple term</a> can be used as the object of a <a>triple</a> with the predicate <code>rdf:reifies</code>;
       such a <a>triple</a> is then a <dfn>reifying triple</dfn>.
       The <a>subject</a> of that <a>triple</a> is called a <dfn>reifier</dfn>.
-      Statements can be made about such a reified <a>proposition</a>, using the <a>reifier</a> as a subject.
-      A concrete syntax may provide a special notation for specifying <a>reifying triples</a>.</p>
+      Statements can be made about such a reified <a>proposition</a>, using the <a>reifier</a> as a subject.</p>
+    <p>
+      Concrete syntaxes, such as Turtle [[RDF12-TURTLE]], may have shortcuts
+      for specifying <a>reifying triples</a>, capturing a <a>triple term</a>
+      with its <a>reifier</a>, or for simultaneously asserting and
+      reifying triples.</p>
 
-    <p class="note">Using a <a>reifier</a> is necessary to describe an
-      occurrence of a <a>proposition</a>, since the latter is an abstract,
-      logical atom, and does not relate to particular circumstances such as
-      various sources.
-      Assertions are always made using the <a>reifier</a>, which can be the <a>subject</a> or <a>object</a>
-      of different triples.
-      Concrete syntaxes, such as Turtle [[RDF12-TURTLE]],
-      may have shortcuts for capturing a <a>triple term</a> with its <a>reifier</a>.</p>
+    <p class="note">
+      Since a <a>proposition</a> is an abstract, logical atom, assertions are
+      made about some <a>reifier</a> thereof, which can be the <a>subject</a>
+      or <a>object</a> of different triples. This enables the description of
+      particular circumstances, such as events, or situations, which can have
+      dates, sources, or other contextual properties.</p>
 
     <p>The following diagram represents a statement and a reification of an unasserted <a>triple term</a>.</p>
 
