@@ -172,11 +172,23 @@
       involving blank nodes say that something with the given relationships
       exists, without explicitly naming it.</p>
 
-    <p>A <a>triple term</a> denotes a <dfn>proposition</dfn>. This is a
-      logical, abstract resource, identified by its constituent predicate
-      property and subject and object resources. It is simply true in the
-      universe if a corresponding triple is asserted. In this way, an <a>RDF
-      statement</a> makes its corresponding, abstract proposition true.</p>
+    <p>
+      A <a>triple term</a> has the same structure as an <a>RDF triple</a>, but
+      it denotes a <dfn>statement type</dfn>. This is a logical, abstract
+      resource, corresponding to a proposition which may concretely hold in
+      some world. Just like <a>triples</a>, it is identified by the denotation
+      of its constituent subject, predicate and object.
+    </p>
+
+    <p>
+      The <a>statement type</a> holds true in the world only if a <a>triple
+      term</a> denoting it is identical to an <a>asserted triple</a>. An <a>RDF
+      statement</a> is the assertion of a <a>statement type</a> in the domain
+      of discourse. I.e., it holds true in the current world. This is why we
+      say that a <a>triple term</a> itself is not asserted, but denotes the
+      abstract proposition which can be made true by asserting the
+      corresponding <a>RDF triple</a>.
+    </p>
   </section>
 
   <section id="referents">
@@ -296,10 +308,10 @@
 
     <p>A <a>triple term</a> is an <a>RDF term</a> with the components of
       an <a>RDF triple</a>, which can be used as the <a>object</a>
-      of another triple. It denotes a <a>proposition</a>, which is
-      an abstract resource that may be true in the universe.</p>
+      of another triple. It denotes a <a>statement type</a>, which is
+      an abstract resource that may hold true in the world.</p>
 
-    <p>A <a>triple term</a> is not necessarily asserted, allowing
+    <p>A <a>triple term</a> is not asserted, allowing
       statements to be made about other statements that may not be
       asserted within an <a>RDF graph</a>.
       This allows statements to be made about relationships that may be contradictory.
@@ -309,7 +321,7 @@
     <p>A <a>triple term</a> can be used as the object of a <a>triple</a> with the predicate <code>rdf:reifies</code>;
       such a <a>triple</a> is then a <dfn>reifying triple</dfn>.
       The <a>subject</a> of that <a>triple</a> is called a <dfn>reifier</dfn>.
-      Statements can be made about such a reified <a>proposition</a>, using the <a>reifier</a> as a subject.</p>
+      Statements can be made about such a reified <a>statement type</a>, using the <a>reifier</a> as a subject.</p>
     <p>
       Concrete syntaxes, such as Turtle [[RDF12-TURTLE]], may have shortcuts
       for specifying <a>reifying triples</a>, capturing a <a>triple term</a>
@@ -317,7 +329,7 @@
       reifying triples.</p>
 
     <p class="note">
-      Since a <a>proposition</a> is an abstract, logical atom, assertions are
+      Since a <a>statement type</a> is an abstract, logical atom, assertions are
       made about some <a>reifier</a> thereof, which can be the <a>subject</a>
       or <a>object</a> of different triples. This enables the description of
       particular circumstances, such as events, or situations, which can have
