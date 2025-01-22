@@ -176,9 +176,7 @@
     to an RDF triple is known as an <dfn data-local-lt="statement">RDF statement</dfn>.
     The predicate itself is an <a>IRI</a> and denotes a <dfn class="export">property</dfn>,
     that is, a <a>resource</a> that can be thought of as a binary relation.
-    (Relations that involve more than two entities can only be
-    <a data-cite="SWBP-N-ARYRELATIONS#">indirectly
-    expressed in RDF</a> [[SWBP-N-ARYRELATIONS]].)</p>
+    </p>
 
     <p>Unlike <a>IRIs</a>, <a>literals</a> and <a>triple terms</a>,
       <a>blank nodes</a> do not identify specific
@@ -186,11 +184,23 @@
       involving blank nodes say that something with the given relationships
       exists, without explicitly naming it.</p>
 
-    <p>A <a>triple term</a> denotes a <dfn>proposition</dfn>. This is a
-      logical, abstract resource, identified by its constituent predicate
-      property and subject and object resources. It is simply true in the
-      universe if a corresponding triple is asserted. In this way, an <a>RDF
-      statement</a> makes its corresponding, abstract proposition true.</p>
+    <p>
+      A <a>triple term</a> denotes a <dfn>proposition</dfn>.
+      This is a logical, abstract resource, which possibly holds in some world.
+      <a>Triple terms</a> are identified by their constituent <a>subject</a>,
+      <a>predicate</a> and <a>object</a>.
+      A <a>proposition</a> is identified by the <a
+        data-lt="denotes">denotation</a> of those same constituents.
+    </p>
+
+    <p>
+      A <a>proposition</a> holds true in the world only if a <a>triple
+      term</a> denoting it is identical to an <a>asserted triple</a>. An <a>RDF
+      statement</a> makes the <a>proposition</a> hold in the domain
+      of discourse. Therefore, a <a>triple term</a> itself is not asserted, but
+      denotes the abstract proposition which can be made true by asserting the
+      corresponding <a>RDF triple</a>.
+    </p>
   </section>
 
   <section id="referents">
@@ -312,31 +322,36 @@
       in the [=object=] position of another triple.
       It denotes a <a>proposition</a>.</p>
 
-    <p>A <a>triple term</a> is not necessarily asserted, allowing
-      statements to be made about other statements that may not be
-      asserted within an <a>RDF graph</a>.
-      This allows statements to be made about relationships that may be contradictory.
-      For a <a>triple term</a> to be asserted,
-      it must also appear in a graph as an <a>asserted triple</a>.</p>
+    <p>
+      When a <a>triple term</a> is used as the object of a <a>triple</a> with the predicate <code>rdf:reifies</code>, such a <a>triple</a> is a <dfn>reifying triple</dfn>.
+      The <a>subject</a> of that <a>triple</a> is called a <dfn>reifier</dfn>.
+    </p>
+
+    <p>
+      Due to the abstract nature of a <a>proposition</a>, assertions are
+      made about some <a>reifier</a> thereof. The <a>IRI</a> or <a>blank
+      node</a> denoting this reifier can be the <a>subject</a> or <a>object</a>
+      of other triples. This enables the description of particular
+      circumstances underlying a statement, such as events, or situations,
+      which can have dates, sources, or other contextual properties.
+    </p>
 
     <p>A <a>triple term</a> can be used as the object of a <a>triple</a> with the predicate <code>rdf:reifies</code>;
       such a <a>triple</a> is then a <dfn>reifying triple</dfn>.
       The <a>subject</a> of that <a>triple</a> is called a <dfn>reifier</dfn>.
       Statements can be made about such a reified <a>proposition</a>, using the <a>reifier</a> as a subject.</p>
     <p>
-      Concrete syntaxes, such as Turtle [[RDF12-TURTLE]], may have shortcuts
-      for specifying <a>reifying triples</a>, capturing a <a>triple term</a>
-      with its <a>reifier</a>, or for simultaneously asserting and
-      reifying triples.</p>
+      Since a <a>triple term</a> is not asserted, it is possible to make
+      statements about other statements that might not hold, which is the case
+      when there is no corresponding <a>asserted triple</a> in the graph.
+      This also allows for statements to be made about relationships that may be
+      contradictory.
+      Conversely, for the <a>proposition</a> denoted by <a>triple term</a>
+      to hold true, an <a>asserted triple</a> must therefore also appear in the
+      graph.
+    </p>
 
-    <p class="note">
-      Since a <a>proposition</a> is an abstract, logical atom, assertions are
-      made about some <a>reifier</a> thereof, which can be the <a>subject</a>
-      or <a>object</a> of different triples. This enables the description of
-      particular circumstances, such as events, or situations, which can have
-      dates, sources, or other contextual properties.</p>
-
-    <p>The following diagram represents a statement and a reification of an unasserted <a>triple term</a>.</p>
+    <p>The following diagram represents a <a>reifying triple</a> of an unasserted, abstract <a>triple term</a>, and a <a>triple</a> relating the <a>reifier</a> to another resource.</p>
 
     <figure id="fig-triple-term">
       <a href="triple-term.svg">
@@ -347,27 +362,47 @@
              aria-describedby="fig-triple-term-alt"/>
       </a>
       <figcaption id="fig-triple-term-alt">
-        An <a>RDF graph</a> containing a <a>triple</a> that references an unasserted <a>triple term</a> (with grey dashed arc) via a <a>reifier</a>.
+        An <a>RDF graph</a> containing a <a>reifying triple</a> that references an abstract <a>triple term</a> (which is unasserted, depicted using a grey, dashed arc) from a <a>reifier</a>; and a triple describing this reifier.
       </figcaption>
     </figure>
 
-    <p>A variation on the graph shown in <a href="#fig-triple-term"></a> can be described
-      where the <a>triple term</a> is also <a data-lt="asserted triple">asserted</a>.</p>
+    <p>Here is a variation on the graph shown in <a href="#fig-triple-term"></a>. This represents a graph
+      where the <a>triple term</a> corresponds to an <a>asserted triple</a>.
+      This is called a <dfn>triple annotation</dfn>.
+    </p>
 
     <figure id="fig-asserted-triple-term">
       <a href="asserted-triple-term.svg">
         <!-- A version of this graphic can be found at https://docs.google.com/drawings/d/1gAHQj4wk87tmeHf4-wnxdgmjq3T05_ovrJq0V-1VXKw -->
         <img src="asserted-triple-term.svg"
-             alt="An RDF graph containing a triple that references an triple term, which is also asserted, via a reifier"
+             alt="An RDF graph containing a reifying triple where the triple term corresponds to an asserted triple"
              style="width:70%"
              aria-describedby="fig-asserted-triple-term-alt"/>
       </a>
       <figcaption id="fig-asserted-triple-term-alt">
-        An <a>RDF graph</a> containing a <a>triple</a> that references an <a>triple term</a>, which is also asserted, via a <a>reifier</a>.
+        An <a>RDF graph</a> containing a <a>reifying triple</a> where the <a>triple term</a> corresponds to an <a>asserted triple</a>.
+        The diagram represents the truth of the proposition using the asserted triple, as if overlaid on the abstract triple term.
       </figcaption>
     </figure>
 
-    <p>Note that a <a>triple term</a> may also have another <a>triple term</a> as an <a>object</a>.</p>
+    <p class="note">
+      Concrete syntaxes, such as Turtle [[RDF12-TURTLE]], may have shortcuts
+      for specifying <a>reifying triples</a>, capturing a <a>triple term</a>
+      with its <a>reifier</a>, or for <a>triple annotations</a> to simultaneously assert and
+      reify a triple.
+    </p>
+
+    <div class="ednote">
+      <blockquote>
+      Relations that involve more than two entities can only be
+      <a data-cite="SWBP-N-ARYRELATIONS#">indirectly
+      expressed in RDF</a> [[SWBP-N-ARYRELATIONS]].
+      </blockquote>
+      This was a note in 1.1, in the section about Resources and Statements.
+      It is still strictly true, but qualified relations are probably better expressed using reifiers.
+      Furthermore, reifiers are a formal way to achieve what was previously done using <a data-cite="RDF12-SEMANTICS#Reif">RDF Semantics, "reification"</a>.
+      A separate Note can be created to elaborate on this.
+    </div>
   </section>
 
   <section id="change-over-time">
