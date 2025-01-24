@@ -172,22 +172,21 @@
 
     <p>
       A <a>triple term</a> has the same structure as an <a>RDF triple</a>, but
-      it denotes a <dfn>statement type</dfn>. This is a logical, abstract
-      resource, corresponding to a proposition which may concretely hold in
-      some world. Both <a>triple terms</a> and <a>triples</a> are identified by
-      their constituent <a>subject</a>, <a>predicate</a> and <a>object</a>. A
-      <a>statement type</a> is identified by the <a
+      it denotes a <dfn>proposition</dfn>. This is a logical, abstract
+      resource, which possibly holds in some world. Both <a>triple
+      terms</a> and <a>triples</a> are identified by their constituent
+    <a>subject</a>, <a>predicate</a> and <a>object</a>. A
+      <a>proposition</a> is identified by the <a
         data-lt="denotes">denotation</a> of those same constituents.
     </p>
 
     <p>
-      A <a>statement type</a> holds true in the world only if a <a>triple
+      A <a>proposition</a> holds true in the world only if a <a>triple
       term</a> denoting it is identical to an <a>asserted triple</a>. An <a>RDF
-      statement</a> is the assertion of a <a>statement type</a> in the domain
-      of discourse. I.e., it holds true in the current world. Therefore, a
-      <a>triple term</a> itself is not asserted, but denotes the abstract
-      proposition which can be made true by asserting the corresponding <a>RDF
-      triple</a>.
+      statement</a> makes the <a>proposition</a> hold in the domain
+      of discourse. Therefore, a <a>triple term</a> itself is not asserted, but
+      denotes the abstract proposition which can be made true by asserting the
+      corresponding <a>RDF triple</a>.
     </p>
   </section>
 
@@ -308,15 +307,15 @@
     <p>
       A <a>triple term</a> is an <a>RDF term</a> with the components of
       an <a>RDF triple</a>, which can be used as the <a>object</a>
-      of another triple. It denotes a <a>statement type</a>, which is
-      an abstract, logical proposition.
+      of another triple. It denotes an abstract, logical <a>proposition</a>,
+      and can be thought of as the sense of a statement.
       When a <a>triple term</a> is used as the object of a <a>triple</a> with the predicate <code>rdf:reifies</code>, such a <a>triple</a> is a <dfn>reifying triple</dfn>.
       The <a>subject</a> of that <a>triple</a> is called a <dfn>reifier</dfn>.
     </p>
 
     <p>
-      Due to the abstract nature of a <a>statement type</a>, assertions are
-      commonly made about such <a>reifiers</a>. The <a>IRI</a> or <a>blank
+      Due to the abstract nature of a <a>proposition</a>, assertions are
+      commonly made about the <a>reifiers</a> thereof. The <a>IRI</a> or <a>blank
       node</a> denoting this reifier can be the <a>subject</a> or <a>object</a>
       of other triples. This enables the description of particular
       circumstances underlying a statement, such as events, or situations,
@@ -325,11 +324,11 @@
 
     <p>
       Since a <a>triple term</a> is not asserted, it is possible to make
-      statements about other statements that might not hold, meaning that their
-      corresponding triples are not <a>asserted</a> in the graph.
-      It also allows for statements to be made about relationships that may be
+      statements about other statements that might not hold, which is the case
+      when there is no corresponding <a>asserted triple</a> in the graph.
+      This also allows for statements to be made about relationships that may be
       contradictory.
-      Conversely, for the <a>statement type</a> denoted by <a>triple term</a>
+      Conversely, for the <a>proposition</a> denoted by <a>triple term</a>
       to hold true, an <a>asserted triple</a> must therefore also appear in the
       graph.
     </p>
@@ -358,13 +357,13 @@
       <a href="asserted-triple-term.svg">
         <!-- A version of this graphic can be found at https://docs.google.com/drawings/d/1gAHQj4wk87tmeHf4-wnxdgmjq3T05_ovrJq0V-1VXKw -->
         <img src="asserted-triple-term.svg"
-             alt="An RDF graph containing a triple that references an triple term, which is also asserted, via a reifier"
+             alt="An RDF graph containing a reifying triple where the triple term corresponds to an asserted triple"
              style="width:70%"
              aria-describedby="fig-asserted-triple-term-alt"/>
       </a>
       <figcaption id="fig-asserted-triple-term-alt">
-        An <a>RDF graph</a> containing a <a>triple</a> that references an <a>triple term</a>, which is also asserted, via a <a>reifier</a>.
-        The diagram represents the meaning of the statement type using the asserted triple, as if overlaid on the abstract triple term.
+        An <a>RDF graph</a> containing a <a>reifying triple</a> where the <a>triple term</a> corresponds to an <a>asserted triple</a>.
+        The diagram represents the truth of the proposition using the asserted triple, as if overlaid on the abstract triple term.
       </figcaption>
     </figure>
 
