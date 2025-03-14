@@ -185,8 +185,9 @@
       exists, without explicitly naming it.</p>
 
     <p>
-      A <a>triple term</a> denotes a <dfn>proposition</dfn>.
-      This is a logical, abstract resource, which possibly holds in some world.
+      A <a>triple term</a> denotes a <dfn class="export">proposition</dfn>.
+      This is a logical, abstract resource, expressing a relationship between
+      two entities, which possibly holds in some world.
       <a>Triple terms</a> are identified by their constituent <a>subject</a>,
       <a>predicate</a> and <a>object</a>.
       A <a>proposition</a> is identified by the <a
@@ -323,7 +324,9 @@
       It denotes a <a>proposition</a>.</p>
 
     <p>
-      When a <a>triple term</a> is used as the object of a <a>triple</a> with the predicate <code>rdf:reifies</code>, such a <a>triple</a> is a <dfn>reifying triple</dfn>.
+      When a <a>triple term</a> is used as the object of a <a>triple</a> with
+      the predicate <code>rdf:reifies</code>, such a <a>triple</a> is a
+      <dfn>reifying triple</dfn>.
       The <a>subject</a> of that <a>triple</a> is called a <dfn>reifier</dfn>.
     </p>
 
@@ -336,10 +339,6 @@
       which can have dates, sources, or other contextual properties.
     </p>
 
-    <p>A <a>triple term</a> can be used as the object of a <a>triple</a> with the predicate <code>rdf:reifies</code>;
-      such a <a>triple</a> is then a <dfn>reifying triple</dfn>.
-      The <a>subject</a> of that <a>triple</a> is called a <dfn>reifier</dfn>.
-      Statements can be made about such a reified <a>proposition</a>, using the <a>reifier</a> as a subject.</p>
     <p>
       Since a <a>triple term</a> is not asserted, it is possible to make
       statements about other statements that might not hold, which is the case
@@ -475,8 +474,7 @@
   <section id="entailment">
     <h3>Equivalence, Entailment and Inconsistency</h3>
 
-    <p>An <a>RDF triple</a> encodes a <dfn class="export">proposition</dfn> — a
-      simple logical expression, describing a relationship between two entities.
+    <p>An <a>RDF triple</a> encodes a <a>proposition</a> — a simple logical expression.
       An [=asserted triple=] is a claim that the corresponding proposition is true.
       An <a>RDF graph</a> is the conjunction (logical <em>AND</em>) of
       all the claims made by its [=asserted triples=].
